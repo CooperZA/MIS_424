@@ -1,0 +1,79 @@
+﻿@model _424_WebApp.Models.ProductVM
+@using _424_WebApp.Models
+
+<div class="col-md-9 productContainerThumb text-center">
+    <h4>ProductVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+    </dl>
+
+    <table class="table">
+        @foreach (CategoryVM cVM in Model.Categories)
+        {
+            <tr>
+                <td style="width:20px">
+                    <input type="checkbox" name="ck1" value="@cVM.CategoryID" @cVM.IsChecked />
+                </td>
+                <td>
+                    @cVM.CatLabel
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    //Get application URL with Razor so path is correct in VS and on server.
+    //Uncomment following Razor snippet:
+    @{
+            string RequestUrl = Url.Content("~/retail/ProductCategoryAjaxHandler/");
+        }
+
+    $(document).ready(function () {
+        $("input:checkbox").change(function () {
+            if ($(this).is(":checked")) {
+                action = "insert";
+            } else {
+                action = "delete";
+            }
+
+            $.post('@RequestUrl',
+                {
+                CategoryID: $(this).attr("value"),
+                    ProductID: @Model.ProductID,   
+                    Action: action
+                },
+                    function (data, status) {
+                        $("#status").html(action + " " + data + " " + status);
+                });
+            });
+        });
+    //source: https://www.w3schools.com/jquery/jquery_ajax_get_post.asp
+</script>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+
+@ViewBag.message
+
+<ul>
+    <li><a href="~/products/">Edit Products</a></li>
+    <li><a href="~/categories/">Edit Categories</a></li>
+    <li><a href="~/productCategories/">Edit Product Category</a></li>
+</ul>
+
+@using (Html.BeginForm("Admin", "Retail", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <br />
+    <input type="submit" value="Upload" />
+}
+
+@foreach (var imgPath in Directory.GetFiles(Server.MapPath("~/content/ProductImages"), "*.jpg"))
+{   
+    var img = new FileInfo(imgPath);
+    <div style="height: 300px; float: left; padding: 3px;">
+        <img src="@Url.Content(String.Format("~/Content/ProductImages/{0}", img.Name))" style="height:200px; max-width:250px;" class="productThumb" />
+        <a href="~/retail/DeleteImage?ImageName=@img.Name">delete @img.Name</a>
+    </div>
+}

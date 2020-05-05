@@ -1,0 +1,38 @@
+﻿@model IEnumerable<_424_WebApp.Models.CategoryDTO>
+@{
+    Layout = null;
+}
+
+
+
+<div class="row body-content">
+    <div class="col-md-3 navContainer">
+        <div class="leftNav">
+            <div class="text-center">
+                <h3 class="text-center">Search</h3>
+
+                <form action="~/retail/search">
+                    <input type="text" name="query" class="form-control" style="width:90%;margin:3px auto;" />
+                    <input type="submit" class="btn btn-primary" />
+                </form>
+            </div>
+
+            <h3 class="text-center">Categories</h3>
+            <ul class="nav nav-pills nav-stacked">
+                @foreach (var cat in Model)
+                {
+                    <li>
+                        <a href="~/retail/Category/@cat.CategoryID">@cat.CatLabel<span style="font-size:smaller;"> (@cat.Count)</span></a>
+
+                    </li>
+
+                }
+            </ul>
+            <p class="text-center">
+                <br />
+                <a href="~/retail/AjaxSearch/">Ajax Search</a>
+                <br /><br />
+                <a href="~/retail">Home</a>
+            </p>
+        </div>
+    </div>

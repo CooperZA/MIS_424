@@ -1,0 +1,83 @@
+﻿@model _424_WebApp.Models.Product
+
+
+@{
+    string image = Model.ImageName;
+    int dot = image.LastIndexOf(".");
+    string size = "." + "600";
+    image = image.Insert(dot, size);
+}
+
+
+<div class="col-md-9 pl-1">
+    <h2>About This Site</h2>
+        <div class="rightImageContainer">
+            <img src="~/content/ProductImages/@image" class='productImage img-thumbnail' alt="@Model.ItemName" title="@Model.ItemName" style="width:400px; height:auto;" />
+        </div>
+    <ul>
+        <li>
+            MVC Photography is a sample built by Zach Cooper for <a class="externalLink" target="_blank" href="http://yorktown.cbe.wwu.edu/sandvig/mis424/">MIS 424</a>
+            E-commerce Management at Western Washington University.
+        </li>
+        <li>
+            Tools used:
+            <ul>
+                <li>
+                    ASP.NET MVC 5
+                </li>
+                <li>C#</li>
+                <li>Visual Studio 2017</li>
+                <li>Sql Server database</li>
+                <li>Entity Framework</li>
+                <li>Dapper ORM (object relation mapper)</li>
+                <li>LINQ (language integrated query)</li>
+                <li>Sql</li>
+                <li>ASP.NET Identity</li>
+                <li>Data Annotations</li>
+                <li>Bootstrap CSS Framework</li>
+                <li>Ajax and JQuery</li>
+            </ul>
+        </li>
+        <li>
+            Models created using Entity Framework.
+        </li>
+        <li>
+            View models coded by hand.
+        </li>
+
+        <li>
+            ASP.NET Identity used to manage admin user accounts.
+        </li>
+        <li>
+            Layout and partial views used to eliminate duplicate UI code.
+        </li>
+        <li>Twitter Bootstrap CSS Framework used for mobile-friendly layout. </li>
+        <li>
+            <b>Admin Pages</b>
+            <ul>
+                <li>
+                    Entity Framework and scaffolding used for CRUD web interfaces to manage
+                    products, categories, and ProductCategories.
+                </li>
+                <li>Data Annotations used for client- and server-side validation</li>
+                <li>
+                    Image uploading, resizing, and deletion using System.Web.Helpers.WebImage class.
+                </li>
+                <li>
+                    AJAX web interface used for assigning products to categories (see image).
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Public facing pages</b>
+            <ul>
+                <li>&quot;Today's Featured Items&quot; are randomly selected from a database. </li>
+                <li>Browse menu is dynamically generated from a database. </li>
+
+                <li>
+                    Stored procedure used to support two search interfaces: Ajax and MVC view.
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<_424_WebApp.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="~/retail/admin/">Return to Admin home</a>
+</p>
+<p class="alert-warning">
+    @TempData["message"]
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CatLabel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ItemName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CatLabel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ItemName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model _424_WebApp.Models.Product
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        @{
+            string image = Model.ImageName;
+            int dot = image.LastIndexOf(".");
+            string size = "." + "600";
+            image = image.Insert(dot, size);
+        }
+
+        <div class="col-md-9 pl-1" style="height: 165px;">
+            <a href='@Url.Action("Detail/" + Model.ProductID)'>
+                <img src="~/content/ProductImages/@image"
+                     class='productImage' alt="@Model.ItemName" title="@Model.ItemName" />
+            </a>
+
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ItemName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImageName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+

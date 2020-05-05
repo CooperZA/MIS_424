@@ -1,0 +1,24 @@
+﻿@model IEnumerable<_424_WebApp.Models.Product>
+
+
+    <div class="col-md-9 productContainerThumb text-center">
+        @ViewBag.message
+
+        @foreach (var item in Model)
+        {
+
+            string image = item.ImageName;
+            int dot = image.LastIndexOf(".");
+            string size = "." + "200";
+            image = image.Insert(dot, size);
+
+            <div class="col-md-6" style="height: 165px;">
+                <a href='@Url.Action("Detail/" + item.ProductID)'>
+                    <img src="~/content/ProductImages/@image"
+                         class='productImage' alt="@item.ItemName" title="@item.ItemName" />
+                </a>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,71 @@
+﻿@{
+    string ReqStr = Url.Content("~/retail/");
+}
+
+<h2>Ajax Search</h2>
+
+<div class="text-center">
+    <div id="pageLoadTime">Page load: </div>
+    <h2>Ajax Search Photos</h2>
+    <input type="text" id="tbFind" size="5" autofocus />
+
+    <h3 id="Count"></h3>
+</div>
+<div id="ajaxResults"></div>
+
+<!-- Get jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    //User Razor to get application URL so path is correct in VS and on server.
+
+    //Assign Razor data to JavaScript variable
+    URL = @ReqStr;
+    targetElement = "#ajaxResults";
+    tbInput = "#tbFind";
+
+    //executes when the page is fully loaded in the browser
+    $(document).ready(function () {
+        //display page load time
+        $(pageLoadTime).append(new Date().toLocaleTimeString());
+
+        //send search request and handle response
+        $(tbInput).keyup(function () {
+            //remove the existing content.
+            $(targetElement).empty();
+            $("#Count").text = "";
+
+            //test for data
+            userinput = $(tbInput).val();
+            if (userinput.length == 0) return;
+
+            //request data and append HTML tag.
+            $.getJSON(URL + 'AjaxSearchHandler/' + userinput, function (data) {
+                //data is an array
+                $("#Count").text(data.length + " items contain '" + $(tbInput).val() + "'");
+                for (item in data) {
+                    thumbImage = data[item].ImageName.replace(".", ".200.");
+
+                    $(targetElement).append(`
+            <div class='col-md-6 productContainerThumb text-center'>
+                <a href='${URL}Detail/${data[item].ProductID}'>
+                        <img src='${URL}../content/productImages/${thumbImage}' style='max-height:200px;'
+                         class='productImage img-thumbnail' alt='${data[item].ItemName}' title='${data[item].ItemName}'  />
+                    </a>
+                    <div>
+                        <a href='${URL}Detail/${data[item].ProductID}'>
+                            <div class="productTitle">${data[item].ItemName}</div>
+                        </a>
+                    </div>
+                </div>`);
+                }
+            });
+        });
+    });
+</script>
+<!-- The JavaScript above uses backticks to delimit a multiline string.
+    Backtick notation also supports interpolation of variables using the notation
+    ${myVariable}. Visual Studio may not recognize this notation.
+    More: https://stackoverflow.com/questions/805107/creating-multiline-strings-in-javascript
+
+    -->
+<!-- ********* End Ajax search code *********** -->
