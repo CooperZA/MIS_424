@@ -1,0 +1,48 @@
+﻿@model IEnumerable<_424_WebApp.Models.MusicItemModel>
+
+@{
+    ViewBag.Title = "ConsumeApi2";
+}
+
+
+<link type="text/css" href="https://yorktown.cbe.wwu.edu/students/174/csandvig/Content/music.css" rel="stylesheet" />
+
+
+<div style="background-color:white;padding:30px;">
+    <div class="text-center">
+        <h3 class="text-center">Search</h3>
+
+
+        <form action="https://yorktown.cbe.wwu.edu/students/182/mis424Assignments/MusicSearchApi/searchMusic/">
+            <input type="text" name="query" value="love" class="form-control" style="width:90%;margin:3px auto;" />
+            <input type="submit" class="btny" />
+        </form>
+    </div>
+
+    <div class="row">
+        <h3 class="text-center">@ViewBag.count titles contain @ViewBag.q</h3>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+
+                <div class="col-md-6 productContainerThumb">
+                    <div class="productTitle">@item.Title</div>
+
+                    <div class="productArtist">by @item.Artists</div>
+
+                    <div class="productDescription">
+                        <p>
+                            @Html.Raw(item.EditorialReviews.Substring(0, Math.Min(150, item.EditorialReviews.Length)))
+                            <br />
+                            <a href="@item.DetailUrl">View on Amazon</a>
+                        </p>
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+</div>
+

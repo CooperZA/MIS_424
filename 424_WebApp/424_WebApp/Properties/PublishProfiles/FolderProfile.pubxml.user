@@ -10,22 +10,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/aspnet-424_WebApp-20200408122926.mdf">
-      <publishTime>05/04/2020 09:53:40</publishTime>
+      <publishTime>05/08/2020 15:00:33</publishTime>
     </File>
     <File Include="App_Data/aspnet-424_WebApp-20200408122926_log.ldf">
-      <publishTime>05/04/2020 09:53:40</publishTime>
+      <publishTime>05/08/2020 15:00:33</publishTime>
     </File>
     <File Include="App_Data/ContosoUniversityData.mdf">
-      <publishTime>05/04/2020 09:47:18</publishTime>
+      <publishTime>05/08/2020 15:00:33</publishTime>
     </File>
     <File Include="App_Data/ContosoUniversityData_log.ldf">
-      <publishTime>05/04/2020 09:47:18</publishTime>
+      <publishTime>05/08/2020 15:00:33</publishTime>
+    </File>
+    <File Include="App_Data/DefaultConnection.mdf">
+      <publishTime>05/08/2020 15:00:33</publishTime>
+    </File>
+    <File Include="App_Data/DefaultConnection_log.ldf">
+      <publishTime>05/08/2020 15:00:33</publishTime>
+    </File>
+    <File Include="App_Data/MusicStore.mdf">
+      <publishTime>05/08/2020 15:00:33</publishTime>
+    </File>
+    <File Include="App_Data/MusicStore_log.ldf">
+      <publishTime>05/08/2020 15:00:33</publishTime>
     </File>
     <File Include="App_Data/RetailStore.mdf">
-      <publishTime>05/04/2020 10:03:34</publishTime>
+      <publishTime>05/08/2020 15:00:34</publishTime>
     </File>
     <File Include="App_Data/RetailStore_log.ldf">
-      <publishTime>05/04/2020 10:05:18</publishTime>
+      <publishTime>05/08/2020 15:00:34</publishTime>
     </File>
     <File Include="App_Start/BundleConfig.cs">
       <publishTime>04/22/2020 14:12:38</publishTime>
@@ -43,10 +55,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/08/2020 12:29:23</publishTime>
     </File>
     <File Include="bin/424_WebApp.dll">
-      <publishTime>05/04/2020 09:53:40</publishTime>
+      <publishTime>05/08/2020 15:08:10</publishTime>
     </File>
     <File Include="bin/424_WebApp.pdb">
-      <publishTime>05/04/2020 09:53:40</publishTime>
+      <publishTime>05/08/2020 15:08:10</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -366,6 +378,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Site.css">
       <publishTime>04/28/2020 10:57:32</publishTime>
     </File>
+    <File Include="Controllers/MusicSearchApiController.cs">
+      <publishTime>05/08/2020 14:58:56</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>04/08/2020 12:29:10</publishTime>
     </File>
@@ -531,6 +546,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
       <publishTime>04/08/2020 12:29:23</publishTime>
     </File>
+    <File Include="Views/MusicSearchApi/ConsumeApi.cshtml">
+      <publishTime>05/08/2020 11:15:29</publishTime>
+    </File>
+    <File Include="Views/MusicSearchApi/ConsumeApi2.cshtml">
+      <publishTime>05/08/2020 15:04:10</publishTime>
+    </File>
     <File Include="Views/ProductCategories/Create.cshtml">
       <publishTime>04/19/2020 15:49:51</publishTime>
     </File>
@@ -597,6 +618,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Retail/_ViewStart.cshtml">
       <publishTime>04/22/2020 14:14:00</publishTime>
     </File>
+    <File Include="Views/Rss/Index.cshtml">
+      <publishTime>05/08/2020 10:59:28</publishTime>
+    </File>
+    <File Include="Views/ScreenScrape/Index.cshtml">
+      <publishTime>05/07/2020 12:36:42</publishTime>
+    </File>
+    <File Include="Views/ScreenScrape/WwuNews.cshtml">
+      <publishTime>05/07/2020 13:41:17</publishTime>
+    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/08/2020 12:29:23</publishTime>
     </File>
@@ -637,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/08/2020 12:29:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/04/2020 09:53:00</publishTime>
+      <publishTime>05/08/2020 14:19:27</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>04/08/2020 12:29:10</publishTime>

@@ -51,12 +51,19 @@
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.4.2.0.0.Fakes">
+      <HintPath>FakesAssemblies\System.Net.Http.4.2.0.0.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -180,10 +187,14 @@
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MusicSearchApiController.cs" />
     <Compile Include="Controllers\ProductCategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RetailController.cs" />
+    <Compile Include="Controllers\RssController.cs" />
+    <Compile Include="Controllers\ScreenScrapeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="DataRepository\MusicRepository.cs" />
     <Compile Include="DataRepository\RetailRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +228,7 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MusicItemModel.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>RetailStoreModel.tt</DependentUpon>
     </Compile>
@@ -239,11 +251,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RetailStoreModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\RssModel.cs" />
     <Compile Include="Models\Student.cs">
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\ScreenScrape.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-424_WebApp-20200408122926.mdf" />
@@ -253,6 +267,14 @@
     <Content Include="App_Data\ContosoUniversityData.mdf" />
     <Content Include="App_Data\ContosoUniversityData_log.ldf">
       <DependentUpon>ContosoUniversityData.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\DefaultConnection.mdf" />
+    <Content Include="App_Data\DefaultConnection_log.ldf">
+      <DependentUpon>DefaultConnection.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\MusicStore.mdf" />
+    <Content Include="App_Data\MusicStore_log.ldf">
+      <DependentUpon>MusicStore.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\RetailStore.mdf" />
     <Content Include="App_Data\RetailStore_log.ldf">
@@ -372,6 +394,11 @@
     <Content Include="Views\Retail\AjaxSearch.cshtml" />
     <Content Include="Views\Retail\EditProductCategories.cshtml" />
     <Content Include="Views\Retail\AjaxSearchHandler.cshtml" />
+    <Content Include="Views\ScreenScrape\Index.cshtml" />
+    <Content Include="Views\ScreenScrape\WwuNews.cshtml" />
+    <Content Include="Views\Rss\Index.cshtml" />
+    <Content Include="Views\MusicSearchApi\ConsumeApi.cshtml" />
+    <Content Include="Views\MusicSearchApi\ConsumeApi2.cshtml" />
     <None Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

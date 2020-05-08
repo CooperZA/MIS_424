@@ -1,0 +1,23 @@
+﻿@model IEnumerable<_424_WebApp.Models.RssModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="text-center mt-3">
+    <h2>Read Rss From Seattle Times</h2>
+    <h4>@ViewBag.count Items In Feed</h4>
+    <a href="@ViewBag.feed">Source: Seattle Times RSS</a>
+</div>
+
+@foreach (var item in Model) {
+<div class="row" style="margin-bottom:20px;">
+    <div class="col-md-offset-2 col-md-8">
+        <a href="@item.Link">
+            <h3>@item.Title</h3>
+        </a>
+        <p>@Html.Raw(item.Description)</p>
+        <p>@item.PubDate</p>
+    </div>
+</div>
+}
+

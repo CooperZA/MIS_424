@@ -29,5 +29,7 @@ namespace _424_WebApp.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<_424_WebApp.Models.MusicItemModel> MusicItemModels { get; set; }
     }
 }

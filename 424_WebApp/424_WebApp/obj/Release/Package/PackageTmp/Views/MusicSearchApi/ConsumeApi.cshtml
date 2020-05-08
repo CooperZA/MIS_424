@@ -1,0 +1,93 @@
+﻿@model IEnumerable<_424_WebApp.Models.MusicItemModel>
+
+@{
+    ViewBag.Title = "ConsumeApi";
+}
+
+<h2>ConsumeApi</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artists)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditorialReviews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumDiscs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumTracks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetailUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artists)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ListPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditorialReviews)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumDiscs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumTracks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetailUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Availability)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ASIN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ASIN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ASIN })
+        </td>
+    </tr>
+}
+
+</table>
